@@ -1,0 +1,293 @@
+/* This css was AI generated */
+
+/* =========================
+   Base reset and font
+========================= */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Orbitron", system-ui, sans-serif;
+}
+
+body {
+	background: radial-gradient(ellipse at bottom, #0b0c10 0%, #000 100%);
+	color: #e0e0e0;
+	overflow-x: hidden;
+	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;
+	position: relative;
+	min-height: 100vh;
+}
+
+/* =========================
+   Background animation
+========================= */
+.stars,
+.twinkling {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.stars {
+	background: url("https://www.transparenttextures.com/patterns/stardust.png");
+	z-index: -2;
+}
+
+.twinkling {
+	background: transparent
+		url("https://www.transparenttextures.com/patterns/stardust.png") repeat top
+		center;
+	animation: move-twinkle 200s linear infinite;
+	opacity: 0.6;
+	z-index: -1;
+}
+
+@keyframes move-twinkle {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: -10000px 5000px;
+	}
+}
+
+/* =========================
+   Title
+========================= */
+#title {
+	text-align: center;
+	font-size: 3rem;
+	margin-top: 2rem;
+	color: #0ff;
+	text-shadow: 0 0 8px #0ff, 0 0 16px #00ffff, 0 0 32px #00f0f0;
+	letter-spacing: 0.15em;
+}
+
+/* Return to player selection button */
+.return {
+	position: fixed; /* Keeps it fixed relative to the viewport */
+	top: 2rem; /* Distance from the top of the viewport */
+	right: 7rem; /* Distance from the right of the viewport */
+	padding: 10px;
+	background: linear-gradient(90deg, #00ffff, #0077ff);
+	color: #000;
+	border: none;
+	padding: 12px 24px;
+	cursor: pointer;
+	font-size: 1rem;
+	border-radius: 50px;
+	margin-top: 10px;
+	transition: all 0.4s ease;
+	box-shadow: 0 0 12px rgba(0, 255, 255, 0.3), 0 0 24px rgba(0, 119, 255, 0.2);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.return:hover {
+	background: linear-gradient(90deg, #0077ff, #00ffff);
+	transform: scale(1.08);
+	box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), 0 0 40px rgba(0, 119, 255, 0.3);
+}
+
+/* =========================
+   Each full-page card
+========================= */
+.item-card {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	align-items: center;
+	justify-items: center;
+	width: 100vw;
+	height: 100vh;
+	padding: 0 6vw;
+	scroll-snap-align: start;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	background: rgba(15, 15, 30, 0.45);
+	backdrop-filter: blur(8px);
+	box-shadow: inset 0 0 30px rgba(0, 255, 255, 0.05);
+	transition: background 0.6s ease;
+}
+
+.item-card:hover {
+	background: rgba(30, 30, 60, 0.6);
+}
+
+/* --- Left section (Title + Description) --- */
+.item-card > div:first-child {
+	max-width: 300px;
+	text-align: left;
+	justify-self: start;
+}
+
+.item-title {
+	font-size: 1rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin-bottom: 1rem;
+	color: #0ff;
+	text-shadow: 0 0 5px #0ff, 0 0 10px #00f0f0;
+}
+
+.item-desc {
+	font-size: 0.9rem;
+	color: #b8eaff;
+	line-height: 1.6;
+}
+
+/* --- Middle section (Image) --- */
+.item-card > div:nth-child(2) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.shopItem {
+	max-width: 350px;
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+	opacity: 0;
+	transform: scale(0.95) rotateX(5deg);
+	transition: opacity 1.5s ease, transform 1.8s cubic-bezier(0.22, 1, 0.36, 1),
+		filter 1.5s ease;
+	filter: brightness(1.05) contrast(1.05) saturate(1.2);
+	border-radius: 12px;
+}
+
+/* Sleek, modern “holographic” hover */
+.shopItem.loaded {
+	opacity: 1;
+	transform: scale(1) rotateX(0);
+}
+
+.item-card:hover .shopItem {
+	filter: brightness(1.1) contrast(1.15) saturate(1.3);
+	transform: scale(1.03) rotateX(1deg);
+}
+
+/* --- Right section (Price + Rating + Review Count + Button) --- */
+.item-card > div:last-child {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	text-align: center;
+	justify-self: end;
+}
+
+.item-price {
+	font-size: 1rem;
+	font-weight: 700;
+	color: #0ff;
+	text-shadow: 0 0 6px #0ff;
+}
+
+.rating {
+	color: #ff0;
+	text-shadow: 0 0 6px #ff0;
+}
+
+.reviewCount {
+	font-size: 0.9rem;
+	color: #88f;
+}
+
+/* =========================
+   Purchase Button
+========================= */
+.purchase {
+	background: linear-gradient(90deg, #00ffff, #0077ff);
+	color: #000;
+	border: none;
+	padding: 12px 24px;
+	cursor: pointer;
+	font-size: 1rem;
+	border-radius: 50px;
+	margin-top: 10px;
+	transition: all 0.4s ease;
+	box-shadow: 0 0 12px rgba(0, 255, 255, 0.3), 0 0 24px rgba(0, 119, 255, 0.2);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.purchase:hover {
+	background: linear-gradient(90deg, #0077ff, #00ffff);
+	transform: scale(1.08);
+	box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), 0 0 40px rgba(0, 119, 255, 0.3);
+}
+
+/* =========================
+   Gradual Fade + Float Animation
+========================= */
+
+/* Default (hidden) state */
+.item-title,
+.item-desc,
+.item-price,
+.rating,
+.reviewCount,
+.purchase {
+	opacity: 0;
+	transform: translateY(30px);
+	filter: blur(3px);
+	transition: opacity 1.2s ease-out,
+		transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), filter 1.2s ease-out;
+}
+
+/* When visible (¼ intersecting) */
+.visible {
+	opacity: 1 !important;
+	transform: translateY(0);
+	filter: blur(0);
+}
+
+/* --- Staggered fade-in timing --- */
+.item-title.visible {
+	transition-delay: 0.05s;
+}
+.item-desc.visible {
+	transition-delay: 0.15s;
+}
+.item-price.visible {
+	transition-delay: 0.25s;
+}
+.rating.visible {
+	transition-delay: 0.35s;
+}
+.reviewCount.visible {
+	transition-delay: 0.45s;
+}
+.purchase.visible {
+	transition-delay: 0.6s;
+}
+
+/* --- Smooth fade-out when leaving --- */
+.item-card h1,
+.item-card p,
+.item-card button {
+	transition-timing-function: ease-in-out;
+}
+
+/* =========================
+   Scrollbar styling
+========================= */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(#00ffff, #0077ff);
+	border-radius: 5px;
+}

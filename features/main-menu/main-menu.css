@@ -1,0 +1,158 @@
+
+* {
+    /* border: 2px dotted white; */
+    color: white;
+    font-size: larger;
+}
+
+body {
+        margin: 0;
+        height: 100vh;
+        background: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .map-container {
+        position: relative;
+        width: 100%;
+        
+      }
+
+      .map {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Base button styles */
+      .planet {
+        position: absolute;
+        border-radius: 50%;
+        /* background: rgba(255, 255, 255, 0.15); */
+        /*border: 2px solid rgba(255, 255, 255, 0.4);*/
+        cursor: pointer;
+        transition: 1s;
+        transform: translate(-50%, -50%);
+      }
+
+      .planet:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translate(-50%, -50%) scale(1.1);
+        /* outer glow */
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.7),
+          0 0 30px rgba(0, 255, 255, 0.5), inset 0 0 15px rgba(0, 255, 255, 0.7),
+          inset 0 0 30px rgba(0, 255, 255, 0.5);
+      }
+
+
+      .planet::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 100%;     
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 6px;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  opacity: 0;       /* hidden by default */
+  pointer-events: none; 
+  transition: opacity 0.2s;
+}
+
+.planet:hover::after {
+  opacity: 1;       /* visible on hover */
+}
+
+      /* Individual planets */
+      #planet1 {
+        top: 50%;
+        left: 14%;
+        width: 2%;
+        height: 5%;
+      }
+      #planet2 {
+        top: 58.7%;
+        left: 25.1%;
+        width: 3%;
+        height: 9%;
+      }
+      #planet3 {
+        top: 50.6%;
+        left: 32.2%;
+        width: 2%;
+        height: 6%;
+      }
+      #planet4 {
+        top: 41.4%;
+        left: 25.1%;
+        width: 4.8%;
+        height: 12%;
+      }
+      #planet5 {
+        top: 50%;
+        left: 38%;
+        width: 6%;
+        height: 18%;
+      }
+      #planet6 {
+        top: 30%;
+        left: 44.7%;
+        width: 3%;
+        height: 7%;
+      }
+      #planet7 {
+        top: 50.9%;
+        left: 46.4%;
+        width: 2%;
+        height: 6%;
+      }
+      #planet8 {
+        top: 50.3%;
+        left: 52%;
+        width: 6%;
+        height: 19%;
+      }
+      #planet9 {
+        top: 64.9%;
+        left: 56.1%;
+        width: 2%;
+        height: 6.5%;
+      }
+      #planet10 {
+        top: 50%;
+        left: 61.2%;
+        width: 3%;
+        height: 14%;
+      }
+      #planet11 {
+        top: 50.6%;
+        left: 67.7%;
+        width: 10%;
+        height: 30.8%;
+      }
+      #planet12 {
+        top: 50.6%;
+        left: 85%;
+        width: 9%;
+        height: 25%;
+      }
+      #planet13 {
+        top: 51.1%;
+        left: 96.1%;
+        width: 0.5%;
+        height: 1.5%;
+      }
+      #planet14 {
+        top: 47.3%;
+        left: 97.3%;
+        width: 1%;
+        height: 3%;
+      }

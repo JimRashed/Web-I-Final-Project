@@ -1,0 +1,103 @@
+<!-- Disclaimer for the assignment: The majority of this HTML 
+  layout was created with generative AI (Gemini/ChatGPT) -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Absolute Monopoly</title>
+		<link rel="stylesheet" href="./absolute-monopoly.css" />
+		<script defer src="./absolute-monopoly.js"></script>
+	</head>
+	<body>
+		<!-- Cosmic background -->
+		<div class="stars"></div>
+		<div class="twinkling"></div>
+		<div class="nebula"></div>
+
+		<!-- Return button -->
+		<a href="../character-selection/character-selection.html">
+			<button class="btn return">Player Selection</button>
+		</a>
+		<div class="container">
+			<h1 class="title">UNIVERSAL SPACECRAFT PRODUCTION FACILITY</h1>
+
+			<div class="layout">
+				<!-- Player Card -->
+				<div class="card player-card">
+					<div class="portrait">
+						<img src="" alt="Player" />
+					</div>
+					<h2 class="name">Player 1</h2>
+					<div class="stats">
+						<h3>STATS</h3>
+						<ul class="stats">
+							<li class="resilience">………………</li>
+							<li class="defense">………………</li>
+							<li class="exhaustion">………………</li>
+						</ul>
+					</div>
+					<div class="items">
+						<h3>ITEMS</h3>
+						<p class="player-items">…………………………………</p>
+					</div>
+				</div>
+
+				<!-- Main Panel -->
+				<div class="panel">
+					<div class="production">
+						<h4>Spacecraft count: <span class="item-count"></span></h4>
+						<button class="btn make-btn">MAKE SPACECRAFT</button>
+					</div>
+
+					<div class="section">
+						<h3>BUSINESS</h3>
+						<div class="line"></div>
+						<p>Available Funds: $ <span class="funds"></span></p>
+						<p>Unsold Inventory: <span class="unsold-inventory"></span></p>
+						<p>Galactic Demand: <span class="demand"></span></p>
+						<p>Price per Item: <span class="unit-price"></span> billion</p>
+						<div class="price-controls">
+							<button class="btn small lower-price">Lower</button>
+							<button class="btn small raise-price">Raise</button>
+						</div>
+						<p>Marketing: Level <span class="marketing-level"></span></p>
+						<button class="btn marketing">
+							Upgrade ($<span class="marketing-price"></span>)
+						</button>
+					</div>
+
+					<div class="section">
+						<h3>MANUFACTURING</h3>
+						<div class="line"></div>
+						<p>Items per Second: <span class="items-per-sec"></span></p>
+						<p>
+							Remaining Raw Material:
+							<span class="remaining-material"></span> tons
+						</p>
+						<button class="btn purchase buy-material">
+							Purchase ($<span class="material-price"></span>)
+						</button>
+						<p>Factories: <span class="factories"></span></p>
+						<button class="btn purchase buy-factory">
+							Purchase ($<span class="factory-price"></span>)
+						</button>
+					</div>
+				</div>
+
+				<!-- NPC Section -->
+				<div class="npc">
+					<div class="speech-bubble">
+						what are you waiting for??? GET STARTED!
+					</div>
+					<div class="npc-avatar">
+						<img src="./assets/foreman.jpg" alt="NPC" />
+						<p>foreman</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

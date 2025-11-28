@@ -1,0 +1,167 @@
+/* ? Global styles */
+* {
+	color: white;
+	font-family: "Courier New", Courier, monospace;
+	/* border: 1px dotted black; */
+}
+
+body {
+	font-family: Arial, sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0;
+	padding: 2rem;
+	height: 100vh;
+	background-image: url(./assets/stars.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+
+/* ? Return button */
+.return {
+	position: fixed; /* Keeps it fixed relative to the viewport */
+	top: 5rem; /* Distance from the top of the viewport */
+	right: 20rem; /* Distance from the right of the viewport */
+	background-color: rgba(230, 220, 250, 0.2);
+	border-radius: 10px;
+	padding: 1.5rem;
+}
+
+/* ? Headings */
+h1 {
+	font-size: 1.5rem;
+	margin-bottom: 2rem;
+}
+
+.player-header {
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.players {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+/* ? Player cards */
+.player-card {
+	background-color: rgba(230, 220, 250, 0.2);
+	border-radius: 10px;
+	padding: 1.5rem;
+	margin: 60px;
+	width: 250px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: transform 1s ease, box-shadow 1s ease;
+}
+
+.player-card h2 {
+	margin: 0 0 2rem 0;
+	font-size: 1.2rem;
+}
+
+/* ? Winner & loser effects */
+.player-card.winner {
+	transform: translateY(-50px);
+	box-shadow: 0 0 30px 10px rgba(0, 255, 0, 0.7);
+}
+
+.player-card.loser {
+	transform: translateY(50px);
+	box-shadow: 0 0 30px 10px rgba(255, 0, 0, 0.7);
+}
+
+/* ? Player profile container */
+.pfp-container {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* ? Profile image */
+.pfp {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* ? Player stats */
+.cookies {
+	font-size: 1rem;
+	letter-spacing: 2px;
+	margin-bottom: 1rem;
+}
+
+/* ? Health bar */
+.health-bar {
+	display: flex;
+	width: 100%;
+	height: 20px;
+	border-radius: 15px;
+	overflow: hidden;
+	margin: 1.5rem 0;
+}
+
+.health-bar .green {
+	flex: 1;
+	background: #7bd38d;
+}
+
+.health-bar .red {
+	flex: 0;
+	background: #e58a8a;
+}
+
+.health-bar * {
+	transition: flex 0.5s;
+}
+
+/* ? Buttons */
+button {
+	transition: box-shadow 0.5s;
+}
+
+#player1 button:hover {
+	box-shadow: 0 0 15px rgba(0, 255, 255, 0.7), 0 0 30px rgba(0, 255, 255, 0.5);
+}
+
+#player2 button:hover {
+	box-shadow: 0 0 15px rgba(192, 54, 19, 0.7), 0 0 30px rgba(192, 54, 19, 0.7);
+}
+
+.actions {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.actions button {
+	border: none;
+	border-radius: 20px;
+	padding: 0.5rem 1rem;
+	font-size: 0.9rem;
+	cursor: pointer;
+	color: white;
+}
+
+.bake {
+	background: #000;
+}
+
+.smack {
+	background: #c97b7b;
+}
+
+.consume {
+	background: #77b97d;
+}

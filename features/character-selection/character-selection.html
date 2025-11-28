@@ -1,0 +1,90 @@
+<!-- Assignment 2 - Absolute Monopoly - Jimmy Rashed - 629112
+ 
+  Disclaimer for the assignment: The majority of this HTML 
+  layout was created with generative AI (Gemini/ChatGPT) -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Choose Your Fighter</title>
+		<link rel="stylesheet" href="./character-selection.css" />
+		<script type="module" defer src="./character-selection.js"></script>
+		<!-- jQuery -->
+		<script
+			src="https://code.jquery.com/jquery-3.7.1.min.js"
+			integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		<!-- Starfield background -->
+		<div class="stars"></div>
+		<div class="twinkling"></div>
+		<div class="nebula"></div>
+
+		<div class="container">
+			<h1 class="title">Choose Your Player</h1>
+			<form
+				id="player-selection"
+				action="../main-menu/main-menu.html"
+				method="post"
+			>
+				<div class="fighters">
+					
+					<!-- KEEPING THE STATIC GUEST OPTION -->
+					<div class="card guest" id="guest">
+						<div class="portrait"></div>
+						<div class="guest-inputs">
+							<!--! NOTE: File uploads were NOT covered in our course material, nor were filereaders and base64.
+							As such, I have done what I could with the tools at my disposal at this point in the course.
+						-->
+
+							<input
+								type="text"
+								id="guest-pfp"
+								name="guestPfp"
+								placeholder="Image URL"
+							/>
+							<input
+								type="text"
+								id="guest-name"
+								name="guestName"
+								placeholder="Guest Name"
+							/>
+							<input
+								type="number"
+								id="guest-age"
+								name="guestAge"
+								placeholder="Age"
+							/>
+							<input
+								type="number"
+								id="guest-resilience"
+								name="guestResilience"
+								placeholder="Resilience"
+							/>
+							<input
+								id="guest-exhaustion"
+								type="number"
+								name="guestExhaustion"
+								placeholder="Exhaustion"
+							/>
+							<input
+								type="number"
+								id="guest-defense"
+								name="guestDefense"
+								placeholder="Defense"
+							/>
+						</div>
+						<div class="stats"></div>
+					</div>
+				</div>
+
+				<input type="submit" class="start-btn" value="Start Game" />
+			</form>
+			<p class="error"></p>
+		</div>
+	</body>
+</html>
