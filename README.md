@@ -16,8 +16,9 @@ API:
 
 Design Plans:
 
-- https://www.figma.com/design/awvBLBwMKqxGqgyRnoDn0y/Web-Programming-I-Final-Project?node-id=0-1&p=f
+- https://www.figma.com/design/awvBLBwMKqxGqgyRnoDn0y/Web-1-Designs-%E2%80%93-December-2025?node-id=0-1&p=f&m=draw
 
 Additional Resources:
 
 - Provide a list of resources with their links
+
