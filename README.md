@@ -1,8 +1,8 @@
-# Project Name
+# City Explorer
 
 > December 2025
 
-Project bio
+Project bio: A project based around API integration. The core idea is to search for a city by name, and to generate a page about it with a bunch of info. The information will be pulled from different APIs and will include things liek the country of the city, the latitude/longitude of the city, a description and an image from wikipedia, the current weather, etc.
 
 **👉 Live Site: not set up yet (github pro :( )
 
@@ -20,5 +20,6 @@ Design Plans:
 
 Additional Resources:
 
-- Provide a list of resources with their links
+- No additional resources other than the APIs will be necessary for this assignment.
+
 
