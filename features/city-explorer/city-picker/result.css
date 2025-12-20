@@ -1,0 +1,85 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+	min-height: 100vh;
+	background: #0f172a;
+	color: #e5e7eb;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+}
+
+.results-container {
+	max-width: 1000px;
+	width: 100%;
+}
+
+.city-header {
+	text-align: center;
+	margin-bottom: 3rem;
+}
+
+.city-header h1 {
+	font-size: 3rem;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+}
+
+.city-header p {
+	margin-top: 0.75rem;
+	color: #9ca3af;
+	font-size: 1.1rem;
+}
+
+.results-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 1.5rem;
+}
+
+.card {
+	background: #020617;
+	border-radius: 16px;
+	padding: 1.5rem;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.card h2 {
+	font-size: 1.1rem;
+	margin-bottom: 0.75rem;
+	color: #cbd5f5;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.weather p,
+.location p {
+	font-size: 1.25rem;
+}
+
+.image {
+	padding: 0;
+	overflow: hidden;
+}
+
+.image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 16px;
+}
+
+.country img {
+	width: 80px;
+	margin-top: 0.5rem;
+	border-radius: 6px;
+}

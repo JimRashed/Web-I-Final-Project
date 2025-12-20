@@ -3,9 +3,52 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>City Results</title>
+		<link rel="stylesheet" href="./result.css" />
+		<script defer type="module" src="./result.js"></script>
 	</head>
 	<body>
-		result page
+		<main class="results-container">
+			<header class="city-header">
+				<h1 id="cityName">Paris</h1>
+				<p id="cityDescription">
+					The capital of France, known for art, fashion, and culture.
+				</p>
+			</header>
+
+			<section class="results-grid">
+				<div class="card weather">
+					<h2>Weather</h2>
+					<p id="weather">☀️ 22°C · Clear sky</p>
+				</div>
+
+				<div class="card">
+					<h2>Population</h2>
+					<p id="population">584950</p>
+				</div>
+
+				<div class="card image">
+					<img
+						id="cityImage"
+						src="https://images.unsplash.com/featured/?paris"
+						alt="City view"
+					/>
+				</div>
+
+				<div class="card location">
+					<h2>Location</h2>
+					<p id="coordinates">48.8566° N, 2.3522° E</p>
+				</div>
+
+				<div class="card country">
+					<h2>Country</h2>
+					<img
+						id="countryFlag"
+						src="https://flagcdn.com/w80/fr.png"
+						alt="Country flag"
+					/>
+				</div>
+			</section>
+		</main>
 	</body>
 </html>
