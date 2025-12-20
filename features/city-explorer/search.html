@@ -3,22 +3,24 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Search</title>
-
+		<title>City Explorer</title>
 		<link rel="stylesheet" href="./search.css" />
+		<script defer type="module" src="search.js"></script>
 	</head>
 	<body>
 		<div class="search-container">
-			<input
-				type="text"
-				class="search-input"
-				placeholder="Search cities..."
-				aria-label="Search"
-			/>
-
+			<div class="autocomplete">
+				<input
+					type="text"
+					id="cityInput"
+					class="search-input"
+					placeholder="Search for a city..."
+					autocomplete="off"
+				/>
+				<ul id="suggestions" class="suggestions"></ul>
+			</div>
 			<div class="button-row">
 				<button class="btn primary">Search</button>
-				<button class="btn secondary">Take me somewhere!</button>
 			</div>
 		</div>
 	</body>

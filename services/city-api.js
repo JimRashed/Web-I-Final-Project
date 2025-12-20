@@ -1,0 +1,35 @@
+"use strict";
+
+//TODO - ADD API KEY
+const API_KEY = "";
+const API_HOST = "wft-geo-db.p.rapidapi.com";
+
+/**
+ * The asynchronous function to fetch a list of cities from the GeoDB API
+ * @param {*} userInput
+ * @returns
+ */
+async function getCities(userInput) {
+	//encodeURIComponent serves to avoid string url issues. I found the documentation on it here:
+	//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
+
+	const url = `https://${API_HOST}/v1/geo/cities?namePrefix=${encodeURIComponent(
+		userInput
+	)}&limit=4&sort=-population`;
+	try {
+		const response = await fetch(url, {
+			//to work with the RapidAPI, both the API KEY and host were necessary to add as headers
+			headers: {
+				"X-RapidAPI-Key": API_KEY,
+				"X-RapidAPI-Host": API_HOST,
+			},
+		});
+		const data = await response.json();
+		return data.data;
+	} catch (error) {
+		console.error("Error fetching cities:", error);
+		return null;
+	}
+}
+
+export { getCities };
