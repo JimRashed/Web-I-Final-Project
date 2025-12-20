@@ -50,7 +50,7 @@ function handleCitySelect(cityObject) {
 
 	//save to local storage and navigate to next page
 	localStorage.setItem("selectedCity", JSON.stringify(cityObject));
-	window.location.href = "results.html";
+	window.location.href = "./city-overview/result.html";
 }
 
 //Note: since i'm on the free plan of the GeoDB cities API, i had to find a way to
