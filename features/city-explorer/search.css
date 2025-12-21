@@ -93,6 +93,14 @@ body {
 	width: 100%;
 }
 
+.header {
+	font-size: 3rem;
+	font-weight: 700;
+	margin-bottom: 40px;
+	color: #8ab4f8;
+	text-align: center;
+}
+
 .suggestions {
 	list-style: none;
 	position: absolute;
