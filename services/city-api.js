@@ -1,7 +1,7 @@
 "use strict";
 
 //TODO - ADD API KEY
-const API_KEY = "3f26d0206bmsha408cf33eeccf99p1edf76jsn783a8903578b";
+const API_KEY = "";
 const API_HOST = "wft-geo-db.p.rapidapi.com";
 
 /**
