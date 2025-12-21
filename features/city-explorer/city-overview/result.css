@@ -43,6 +43,7 @@ body {
 	gap: 1.5rem;
 }
 
+/* ------------------ GENERAL CARD ------------------ */
 .card {
 	background: #020617;
 	border-radius: 16px;
@@ -50,7 +51,9 @@ body {
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: center; /* vertical centering */
+	align-items: center; /* horizontal centering */
+	text-align: center; /* text inside is centered */
 }
 
 .card h2 {
@@ -69,6 +72,11 @@ body {
 .image {
 	padding: 0;
 	overflow: hidden;
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .image img {
@@ -76,10 +84,23 @@ body {
 	height: 100%;
 	object-fit: cover;
 	border-radius: 16px;
+	display: block;
 }
 
-.country img {
-	width: 80px;
-	margin-top: 0.5rem;
-	border-radius: 6px;
+/* ------------------ FLAG IMAGE ------------------ */
+.card.country {
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+.card.country img {
+	width: 80%;
+	height: 90%;
+	margin: 10px;
+	object-fit: cover;
+	border-radius: 5px;
+	display: block;
 }
