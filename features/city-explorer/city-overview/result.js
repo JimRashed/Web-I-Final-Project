@@ -1,5 +1,6 @@
 "use strict";
 import { getWeather } from "../../../services/weather-api.js";
+import { getImageSrc } from "../../../services/city-image-api.js";
 //fetch stored city item
 const city = JSON.parse(localStorage.getItem("selectedCity"));
 const cityNameP = document.querySelector("#cityName");
@@ -9,6 +10,8 @@ const coordinatesP = document.querySelector("#coordinates");
 const weatherP = document.querySelector("#weather");
 const flagImage = document.querySelector(".country img");
 const timeP = document.querySelector("#currentTime");
+const cityImage = document.querySelector("#cityImage");
+const skeleton = document.querySelector(".image-skeleton");
 
 const loadObjectData = async () => {
 	cityNameP.textContent = city.name;
@@ -29,9 +32,20 @@ const loadObjectData = async () => {
 		const formattedTime = isoTime.split("T")[1];
 
 		timeP.textContent = formattedTime;
+
+		//set image
+		const imageData = await getImageSrc(city.name);
+		if (imageData) {
+			cityImage.src = imageData.large2x;
+		}
 	} catch (error) {
 		console.error("Could not load city weather:" + error);
 	}
 };
 
 loadObjectData();
+
+cityImage.addEventListener("load", () => {
+	cityImage.classList.add("loaded");
+	skeleton.classList.add("hidden");
+});

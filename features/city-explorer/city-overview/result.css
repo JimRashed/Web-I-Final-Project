@@ -1,3 +1,4 @@
+/* ------------------ RESET ------------------ */
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -5,6 +6,7 @@
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+/* ------------------ PAGE ------------------ */
 body {
 	min-height: 100vh;
 	background: #0f172a;
@@ -15,14 +17,16 @@ body {
 	padding: 2rem;
 }
 
+/* ------------------ CONTAINER ------------------ */
 .results-container {
-	max-width: 1000px;
+	max-width: 1100px;
 	width: 100%;
 }
 
+/* ------------------ HEADER ------------------ */
 .city-header {
 	text-align: center;
-	margin-bottom: 3rem;
+	margin-bottom: 2rem;
 }
 
 .city-header h1 {
@@ -35,11 +39,14 @@ body {
 	margin-top: 0.75rem;
 	color: #9ca3af;
 	font-size: 1.1rem;
+	max-width: 600px;
+	margin-inline: auto;
 }
 
+/* ------------------ GRID ------------------ */
 .results-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-template-columns: repeat(12, 1fr);
 	gap: 1.5rem;
 }
 
@@ -51,43 +58,74 @@ body {
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 	display: flex;
 	flex-direction: column;
-	justify-content: center; /* vertical centering */
-	align-items: center; /* horizontal centering */
-	text-align: center; /* text inside is centered */
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 }
 
+/* ------------------ CARD TITLES ------------------ */
 .card h2 {
-	font-size: 1.1rem;
+	font-size: 0.9rem;
 	margin-bottom: 0.75rem;
 	color: #cbd5f5;
 	text-transform: uppercase;
-	letter-spacing: 0.08em;
+	letter-spacing: 0.1em;
 }
 
+/* ------------------ TEXT CONTENT ------------------ */
 .weather p,
-.location p {
+.location p,
+.population p,
+.time p {
 	font-size: 1.25rem;
 }
 
-.image {
+/* ------------------ FEATURED CITY IMAGE ------------------ */
+.city-photo-card {
+	grid-column: span 12;
+	height: 420px;
 	padding: 0;
 	overflow: hidden;
-	width: 100%;
-	height: auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	position: relative;
+	border-radius: 20px;
 }
 
-.image img {
+.city-photo-card img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	border-radius: 16px;
+	filter: brightness(0.9) contrast(1.05);
+	transition: transform 0.6s ease;
 	display: block;
 }
 
-/* ------------------ FLAG IMAGE ------------------ */
+.city-photo-card:hover img {
+	transform: scale(1.05);
+}
+
+/* Gradient overlay for cinematic feel */
+.city-photo-card::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		to bottom,
+		rgba(2, 6, 23, 0) 40%,
+		rgba(2, 6, 23, 0.65) 100%
+	);
+	pointer-events: none;
+}
+
+/* ------------------ STAT CARDS PLACEMENT ------------------ */
+.weather,
+.population,
+.time,
+.location,
+.country {
+	grid-column: span 4;
+}
+
+/* ------------------ FLAG CARD ------------------ */
 .card.country {
 	padding: 0;
 	display: flex;
@@ -97,10 +135,68 @@ body {
 }
 
 .card.country img {
-	width: 80%;
-	height: 90%;
+	width: 70%;
+	height: auto;
+	object-fit: contain;
+	border-radius: 6px;
 	margin: 10px;
-	object-fit: cover;
-	border-radius: 5px;
-	display: block;
 }
+
+/* ------------------ IMAGE SKELETON ------------------ */
+.image-skeleton {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		100deg,
+		#020617 30%,
+		#1e293b 40%,
+		#020617 50%
+	);
+	background-size: 200% 100%;
+	animation: skeleton-loading 1.4s infinite ease-in-out;
+	z-index: 1;
+	border-radius: 20px;
+}
+
+/* Hide image until loaded */
+.city-photo-card img {
+	opacity: 0;
+}
+
+/* When loaded */
+.city-photo-card img.loaded {
+	opacity: 1;
+	transition: opacity 0.4s ease;
+}
+
+.city-photo-card img.loaded + .image-skeleton,
+.city-photo-card .image-skeleton.hidden {
+	display: none;
+}
+
+@keyframes skeleton-loading {
+	0% {
+		background-position: 200% 0;
+	}
+	100% {
+		background-position: -200% 0;
+	}
+}
+
+/* ------------------ IMAGE CAPTION ------------------ */
+.image-caption {
+	position: absolute;
+	bottom: 1rem;
+	right: 1.25rem;
+	font-size: 0.75rem;
+	color: rgba(255, 255, 255, 0.75);
+	background: rgba(2, 6, 23, 0.55);
+	backdrop-filter: blur(6px);
+	padding: 0.35rem 0.6rem;
+	border-radius: 999px;
+	letter-spacing: 0.02em;
+	z-index: 2;
+	pointer-events: none;
+}
+
+
