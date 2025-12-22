@@ -1,7 +1,7 @@
 "use strict";
 
 //TODO - ADD API KEY
-const API_KEY = "";
+const API_KEY = "OPZOuHwFEyt1tIDEQJrg3htW2gecYqPZ1zbYWXFLw6YvN7uPMlUVjQSc";
 /**
  * The asynchronous function to fetch the src attribute of the first result of the
  * search of the city name on the pexels api

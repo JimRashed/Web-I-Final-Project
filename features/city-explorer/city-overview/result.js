@@ -30,7 +30,6 @@ const loadObjectData = async () => {
 		//format time and set it
 		const isoTime = weatherResponse.current_weather.time;
 		const formattedTime = isoTime.split("T")[1];
-
 		timeP.textContent = formattedTime;
 
 		//set image
