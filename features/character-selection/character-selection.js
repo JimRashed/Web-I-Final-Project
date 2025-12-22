@@ -11,31 +11,6 @@ const error = document.querySelector(".error");
 
 // ! Functions
 
-// //? OLD DISPLAY METHOD
-// function displayStats(player) {
-// 	const playerCard =
-// 		player === PLAYER_ONE
-// 			? document.querySelector(".p1")
-// 			: document.querySelector(".p2");
-
-// 	// pfp
-// 	const playerPfp = playerCard.querySelector(".portrait img");
-// 	playerPfp.src = "../../" + player.pfp;
-
-// 	// Name
-// 	const playerName = playerCard.querySelector(".name");
-// 	playerName.textContent = player.name;
-
-// 	//Stats
-// 	const playerStats = playerCard.querySelector(".stats");
-// 	playerStats.querySelector(".resilience").textContent =
-// 		"Resilience: " + player.stats.resilience;
-// 	playerStats.querySelector(".exhaustion").textContent =
-// 		"Exhaustion: " + player.stats.exhaustion;
-// 	playerStats.querySelector(".defense").textContent =
-// 		"Defense: " + player.stats.defense;
-// }
-
 //? NEW DISPLAY METHOD
 /**
  * A method to obtain html content of a single character's card
@@ -69,20 +44,6 @@ function renderPage(characters) {
 	//add card event listeners once the dynamic characters are all loaded
 	addCardListeners();
 }
-
-//  OLD
-//async function getCharacters() {
-// 	const characters = [];
-// 	const pokemonToFetch = ["charizard", "bulbasaur", "squirtle"];
-
-// 	pokemonToFetch.forEach(async (pok) => {
-// 		//at this point, fetchCharacter returns a PROMISE, not the proper pokemon object
-// 		characters.push(await fetchCharacter(pok));
-// 	});
-// 	return characters.map((unformattedCharacter) =>
-// 		mapPokemon(unformattedCharacter)
-// 	);
-// }
 
 //chatGPT code -- approved by you in class
 /**
@@ -252,15 +213,16 @@ let chosenPlayerIndex = -1;
 
 //Valdation and sending
 form.addEventListener("submit", (event) => {
+	event.preventDefault();
 	if (chosenPlayer === "unchosen") {
-		event.preventDefault();
 		error.textContent = "You must select a player.";
+		return;
 	}
 	if (chosenPlayer === "guest") {
 		const guestReturn = validateGuestData();
 		if (typeof guestReturn === "string") {
 			error.textContent = guestReturn;
-			event.preventDefault();
+			return;
 		}
 		// Save guest to local storage
 		localStorage.setItem("player", JSON.stringify(guestReturn));
@@ -268,4 +230,5 @@ form.addEventListener("submit", (event) => {
 		//record in storage
 		localStorage.setItem("player", JSON.stringify(players[chosenPlayerIndex]));
 	}
+	window.location.href = "../main-menu/main-menu.html";
 });
