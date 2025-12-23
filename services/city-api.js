@@ -32,4 +32,26 @@ async function getCities(userInput) {
 	}
 }
 
-export { getCities };
+async function getRandomCity() {
+	const MAX_OFFSET = 10000;
+	const randomOffset = Math.floor(Math.random() * MAX_OFFSET);
+
+	const url = `https://${API_HOST}/v1/geo/cities?limit=1&offset=${randomOffset}&sort=-population`;
+
+	try {
+		const response = await fetch(url, {
+			headers: {
+				"X-RapidAPI-Key": API_KEY,
+				"X-RapidAPI-Host": API_HOST,
+			},
+		});
+
+		const data = await response.json();
+		return data.data[0];
+	} catch (error) {
+		console.error("Error fetching random city:", error);
+		return null;
+	}
+}
+
+export { getCities, getRandomCity };
