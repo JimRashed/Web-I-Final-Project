@@ -65,7 +65,7 @@ function selectTypedCity() {
 	);
 
 	if (!cityObject) {
-		alert("Please select a city from the suggestions.");
+		alert("Please type and select a city.");
 		return;
 	}
 
@@ -98,11 +98,11 @@ input.addEventListener("input", () => {
 	}, 300);
 });
 
-//TODO - make the enter key perform a search somehow
+// Hide suggestions when clicking outside of suggestions list
+document.addEventListener("click", () => {
+	suggestions.style.display = "none";
+});
 
-// Hide suggestions when clicking outside
-document.addEventListener("click", (e) => {
-	if (!e.target.closest(".autocomplete")) {
-		suggestions.style.display = "none";
-	}
+document.querySelector(".autocomplete").addEventListener("click", (event) => {
+	event.stopPropagation();
 });
