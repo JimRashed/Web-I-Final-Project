@@ -13,6 +13,10 @@ const timeP = document.querySelector("#currentTime");
 const cityImage = document.querySelector("#cityImage");
 const skeleton = document.querySelector(".image-skeleton");
 
+/**
+ * A function to fetch and display data about the page's city. It does so via existing data in the city object as well as
+ * by calling the GetWeather and getImageSrc methods and formatting their response.
+ */
 const loadObjectData = async () => {
 	cityNameP.textContent = city.name;
 	descriptionP.textContent = `A city in the country of ${city.country}`;
@@ -44,6 +48,7 @@ const loadObjectData = async () => {
 
 loadObjectData();
 
+//! EVENT LISTENERS
 cityImage.addEventListener("load", () => {
 	cityImage.classList.add("loaded");
 	skeleton.classList.add("hidden");

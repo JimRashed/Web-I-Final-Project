@@ -6,15 +6,15 @@ const API_HOST = "wft-geo-db.p.rapidapi.com";
 
 /**
  * The asynchronous function to fetch a list of cities from the GeoDB API
- * @param {*} userInput
- * @returns
+ * @param {*} searchValue The inputted value of the city name the user is searching for
+ * @returns The city object returned by the GeoDB cities API
  */
-async function getCities(userInput) {
+async function getCities(searchValue) {
 	//encodeURIComponent serves to avoid string url issues. I found the documentation on it here:
 	//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
 
 	const url = `https://${API_HOST}/v1/geo/cities?namePrefix=${encodeURIComponent(
-		userInput
+		searchValue
 	)}&limit=4&sort=-population`;
 	try {
 		const response = await fetch(url, {
@@ -32,6 +32,10 @@ async function getCities(userInput) {
 	}
 }
 
+/**
+ * A method to randomly fetch a city object from the GeoDB cities API
+ * @returns A city object
+ */
 async function getRandomCity() {
 	const MAX_OFFSET = 10000;
 	const randomOffset = Math.floor(Math.random() * MAX_OFFSET);

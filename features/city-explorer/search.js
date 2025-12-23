@@ -41,7 +41,6 @@ function renderSuggestions(cities, citySelect) {
 /**
  * A method that handles the selection of a city by saving its object to local storage and navigating to the next page
  * @param {*} cityObject The selected city object
- * @returns
  */
 function handleCitySelect(cityObject) {
 	if (!cityObject) return;
@@ -55,7 +54,7 @@ function handleCitySelect(cityObject) {
 }
 
 /**
- * A method to select the city object corresponding to the searched city name
+ * A method that passes a valid city object to the handleCitySelect method
  */
 function selectTypedCity() {
 	const cityName = input.value.trim();
